@@ -1,0 +1,3 @@
+﻿using Sqlite;
+
+InicializadorBd.Inicializar();
