@@ -27,4 +27,22 @@ public class ProdutoRepository
             }
         }
     }
+    public void ListarProdutos()
+    {
+        using (var connection = new SQLiteConnection(ConnectionString))
+        {
+            connection.Open();
+            var selectCommand = "SELECT Id, Nome, Preco FROM Produtos;";
+            using (var command = new SQLiteCommand(selectCommand, connection))
+            {
+                using (var reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        Console.WriteLine($"Id: {reader["Id"]} - Nome: {reader["Nome"]} - Preco: {reader["Preco"]}");
+                    }
+                }
+            }
+        }
+    }
 }

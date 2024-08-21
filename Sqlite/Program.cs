@@ -8,6 +8,7 @@ while (opcao != 0)
 {
     Console.WriteLine("====     MENU DE PRODUTOS    ===");
     Console.WriteLine("1 - Adiconar Produto");
+    Console.WriteLine("2 - Listar Produtos");
     Console.WriteLine("0 - Sair");
 
     opcao = int.Parse(Console.ReadLine());
@@ -21,6 +22,9 @@ while (opcao != 0)
             double preco = double.Parse(Console.ReadLine());
             _repository.AdicionarProduto(nome, preco);
             Console.WriteLine("Produto adicionado com sucesso.");
+            break;
+        case 2:
+            _repository.ListarProdutos();
             break;
         case 0:
             Console.WriteLine("Saindo . . . ");
